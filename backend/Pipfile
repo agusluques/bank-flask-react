@@ -1,0 +1,23 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[scripts]
+api = "python run.py"
+db = "bash -c \"sqlite3 app/database.db < app/populate_db.sql\""
+
+[packages]
+flask = "*"
+flask-marshmallow = "*"
+flask-sqlalchemy = "*"
+marshmallow-sqlalchemy = "*"
+python-dotenv = "*"
+flask-cors = "*"
+
+[dev-packages]
+pylint = "*"
+pylint-flask = "*"
+
+[requires]
+python_version = "3.8"
