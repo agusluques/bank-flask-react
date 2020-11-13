@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './table.scss';
+import Row from '../Row/row';
 
 const Table = (props) => {
     const { transactions } = props;
@@ -12,20 +13,16 @@ const Table = (props) => {
 
     const placeholder = transactions.map((tr) => {
         return (
-            <tr className={`row-${tr.card_type}`}>
-                <td>{tr.id}</td>
-                <td>{tr.value}</td>
-                <td>{tr.date_created}</td>
-            </tr>
+            <Row transaction={tr}></Row>
         )
     })
 
     return transactions.length > 0 ?
         <table className='table'>
             <thead>
+                <th></th>
                 <th>Id</th>
                 <th>$</th>
-                <th>Date</th>
             </thead>
             {placeholder}
         </table> : (hasFetched && <section className='noData'>No data</section>);
